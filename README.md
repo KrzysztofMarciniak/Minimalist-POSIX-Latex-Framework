@@ -1,1 +1,1 @@
-# latex-templates
+# Minimalist POSIX Latex Framework

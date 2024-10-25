@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# MPLF - Minimalist POSIX LaTeX Framework
+
+for script in ./*.sh; do
+    source "$script"
+done
+
+show_commands() {
+    echo "Available commands:"
+    for command in "${!commands[@]}"; do
+        echo " - '$command'"
+    done
+}
+
+if [ "$#" -gt 0 ]; then
+    command="$1"
+    shift
+
+    if [[ -n "${commands[$command]}" ]]; then
+        "${commands[$command]}" "$@"
+    else
+        echo "Unknown command: $command"
+        show_commands
+    fi
+else
+    echo "No command provided. Use 'help' to see available commands."
+    exit 1
+fi
