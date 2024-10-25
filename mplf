@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# MPLF - Minimalist POSIX LaTeX Framework
-
-for script in ./*.sh; do
+script_dir="$(dirname "${BASH_SOURCE[0]}")"
+source $script_dir/src/define_command.sh
+for script in $script_dir/src/*.sh; do
     source "$script"
 done
 
